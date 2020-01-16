@@ -8,3 +8,4 @@ Research Engineering](http://rse.turing.ac.uk) team at the [Alan Turing Institut
 
 ## Things I work on
 - [Shogun](shogun/intro.md)
+- [Bioinformatics](bioinformatics/intro.md)
