@@ -1,7 +1,14 @@
-## Extending C++ with SWIG
+---
+layout: post
+title:  "Extending C++ with SWIG"
+categories: [programming]
+tags: [shogun, C++, Python, SWIG]
+---
 
-Shogun's core library is written in C++, that is everything from memory management, exception hadling to the linear algebra framework that is required to write the machine learning algorithms. However, C++ is not the laguage of choice of data scientists and even machine learning engineers. This is despite the large effort that has been made in modern C++ to make memory management something almost from the past (use `std::shared_ptr` instead) and making types automatically deduced, i.e. with `auto`. Most scientist do know how to write Python, statisticians in particular usually know R, most engineers prefer Java, and possibly C#, and then languages such as Lua and Go are becoming more relevant. It is no coincidence that these languages, and more, are covered by SWIG. 
+## Introduction
+Shogun's core library is written in C++, that is everything from memory management, exception hadling to the linear algebra framework that is required to write the machine learning algorithms. However, C++ is not the laguage of choice of data scientists and even machine learning engineers. This is despite the large effort that has been made in modern C++ to make memory management something almost from the past (use `std::shared_ptr` instead) and making types automatically deduced, i.e. with `auto`. Most scientist do know how to write Python, statisticians in particular usually know R, most engineers prefer Java, and possibly C#, and then languages such as Go are becoming more relevant. It is no coincidence that these languages, and more, are covered by SWIG. 
 
+## SWIG
 SWIG, or Simplified Wrapper and Interface Generator, is a tool that uses a target language's C-API to call C/C++ functions. The SWIG parser reads files with a `.i` extension and generates a translation unit with all the function calls that are exposed to the target language and calls to function that do the respective type conversions. Standard library containers, such as `std::vector` are supported in most languages for example, and in Python are represented as sets. That means when a C++ function that returns a `std::vector` is called from the source code created by SWIG it returns a Python `set`. However, you might need a `list` instead, and this can be done with some ease in SWIG. For this you require so called typemaps, that map C/C++ types to the target language's type. The conversion is done with a user provided function, and has to name a specific type, as opposed to templated type. For example you need a typemap for `std::vector<int>`, `std::vector<unsigned int>`, `std::vector<float>` and so on. 
 ```cpp
 %typemap(out) std::vector<int>
@@ -36,4 +43,4 @@ When this short program terminates all variables are garbage collected, the refe
 
 SWIG takes care of a lot of boiler plate code for various languages, and is a truly amazing developer tool for projects that require various interfaces like Shogun. It is also being actively developed and is compliant with most C++ code that you'll need to expose to a user, e.g. constructors, function calls and getters.
 
-Checkout my post on how to [extend C++ to Python with SWIG with typed getters](extend_python_getters.md) for some more advanced functionality!
+Checkout my post on how to [extend C++ to Python with SWIG with typed getters]({% post_url 2019-03-01-extend_python_getters %}) for some more advanced functionality!

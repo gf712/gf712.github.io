@@ -1,5 +1,11 @@
-## Type agnostic Python getters
+---
+layout: post
+title:  "Type agnostic Python getters"
+categories: [programming]
+tags: [shogun, C++, Python, SWIG]
+---
 
+## Introduction
 C++ is a statically typed language, meaning that at compile time the types of each variable are checked and the validity of operations with these variables is asserted. On the other hand, Python is dynamically typed, and a variable can hold any type.
 This leads to an awkward syntax in shogun where the getters need to know the return type at runtime. In other words, if a class member is a float we need to use the `get_real` getter, if it is an int we would use `get_int`. 
 ```python
@@ -9,6 +15,8 @@ This leads to an awkward syntax in shogun where the getters need to know the ret
 >>> # this will raise an error
 >>> lr.get_real("max_iterations")
 ```
+
+## Extend Shogun to dynamically typed languages
 This is an issue when extending shogun to OpenML, because we need to use these getters constantly and we would have to keep track of these getters in a third-party application. For example, we would have to map class member names to their types, and that would be intractable.
 Instead we decided to use a `try: ... except: ...` block inside a loop. The loop iterates over a list of all getters, e.g. `["get_int", "get_real", ...]`, and tries to retrieve a class member with different types until no error is returned. This is of course very innefficient but we argue that this part of the machine learning pipeline is very short in time, relative to the whole process.
 So now we can use something as simple as:

@@ -1,1 +1,19 @@
-theme: jekyll-theme-slate
+remote_theme: "mmistakes/so-simple-theme@3.2.0"
+
+title: "Blog"
+name: "Gil's Blog"
+description: "A blog about machine learning, coding and bioinformatics."
+skin: "/assets/css/skins/dark.css"
+date_format: "%d %B %Y"
+disqus:
+  shortname: gf712blog
+
+author:
+  name: Gil Hoben
+
+google_analytics: UA-135533615-1
+
+feed_items: 10
+
+plugins:
+  - jekyll-feed

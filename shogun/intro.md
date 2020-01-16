@@ -5,6 +5,6 @@ Straight from the wikipedia page: "Shogun is a free, open-source machine learnin
 ## Posts:
 - [Enabling meta learning in Shogun](enabling_meta.md)
 	- [Introduction](enable_meta_learning/intro.md)
-	- [Extending C++ with SWIG](enable_meta_learning/intro_to_swig.md)
-	- [Type agnostic Python getters](enable_meta_learning/extend_python_getters.md)
+	- [Extending C++ with SWIG]({% post_url 2019-02-01-intro_to_swig %})
+	- [Type agnostic Python getters]({% post_url 2019-03-01-extend_python_getters %})
 - [Unified typed tests in Shogun](typed_tests/typed_tests.md)
