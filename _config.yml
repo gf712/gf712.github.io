@@ -1,6 +1,6 @@
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
 
-title: "Blog"
+title: "Gil's Blog"
 name: "Gil's Blog"
 description: "A blog about machine learning, coding and bioinformatics."
 skin: "/assets/css/skins/dark.css"
