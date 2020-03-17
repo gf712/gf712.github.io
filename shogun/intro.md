@@ -8,3 +8,9 @@ Straight from the wikipedia page: "Shogun is a free, open-source machine learnin
 	- [Extending C++ with SWIG]({% post_url 2019-02-01-intro_to_swig %})
 	- [Type agnostic Python getters]({% post_url 2019-03-01-extend_python_getters %})
 - [Unified typed tests in Shogun](typed_tests/typed_tests.md)
+- Computational graphs
+{% for post in site.posts %}
+{% if post.tags contains "shogun" and post.tags contains "Computational graphs"%}
+	- [{{ post.title }}]({{ post.url }})
+{% endif %}
+{% endfor %}
